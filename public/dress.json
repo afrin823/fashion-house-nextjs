@@ -1,0 +1,94 @@
+
+[
+    {
+      "id": 1,
+      "name": "Floral Summer Dress",
+      "size": ["S", "M", "L"],
+      "color": "Pink",
+      "price": 19.99,
+      "material": "Cotton",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1584097827582-c2da14037760"
+    },
+    {
+      "id": 2,
+      "name": "Denim Jumper Dress",
+      "size": ["XS", "S", "M", "L"],
+      "color": "Blue",
+      "price": 24.99,
+      "material": "Denim",
+      "inStock": false,
+      "imageUrl": "https://images.unsplash.com/photo-1556075799-89bcbf945cc5"
+    },
+    {
+      "id": 3,
+      "name": "Tulle Party Dress",
+      "size": ["S", "M", "L", "XL"],
+      "color": "Lavender",
+      "price": 29.99,
+      "material": "Polyester",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1518976036674-7a4bbf765103"
+    },
+    {
+      "id": 4,
+      "name": "Casual A-line Dress",
+      "size": ["S", "M", "L"],
+      "color": "Yellow",
+      "price": 15.99,
+      "material": "Cotton Blend",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1569414391348-19f312dd2c1a"
+    },
+    {
+      "id": 5,
+      "name": "Polka Dot Sundress",
+      "size": ["XS", "S", "M"],
+      "color": "White with Black Polka Dots",
+      "price": 17.49,
+      "material": "Rayon",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1584088061060-d91cb55f4d77"
+    },
+    {
+      "id": 6,
+      "name": "Embroidered Boho Dress",
+      "size": ["M", "L", "XL"],
+      "color": "Beige",
+      "price": 34.99,
+      "material": "Linen",
+      "inStock": false,
+      "imageUrl": "https://images.unsplash.com/photo-1580542945548-09cb747cbbde"
+    },
+    {
+      "id": 7,
+      "name": "Striped Knit Dress",
+      "size": ["XS", "S", "M", "L"],
+      "color": "Navy and White",
+      "price": 22.99,
+      "material": "Knit",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1551879401-342b6f0d6f27"
+    },
+    {
+      "id": 8,
+      "name": "Princess Lace Dress",
+      "size": ["S", "M"],
+      "color": "Light Blue",
+      "price": 27.99,
+      "material": "Lace",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1550858851-04a26821a5eb"
+    },
+    {
+      "id": 9,
+      "name": "Plaid Pinafore Dress",
+      "size": ["S", "M", "L"],
+      "color": "Red and Black",
+      "price": 18.99,
+      "material": "Polyester Blend",
+      "inStock": true,
+      "imageUrl": "https://images.unsplash.com/photo-1535958636486-76e54c9d70a0"
+    }
+  ]
+  
