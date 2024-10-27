@@ -5,7 +5,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 export const createDBClient = async () => {
 //   if (db) return db;
   try {
-    const uri = process.env.NEXT_PUBLIC_MONGODB_URI;
+    const uri = `mongodb+srv://fashion-house:w1PnQeqq8PbxAWuo@cluster0.vadwj9m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
     const client = new MongoClient(uri, {
       serverApi: {
         version: ServerApiVersion.v1,
