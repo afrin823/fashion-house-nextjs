@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer/Footer";
+import AuthProvider from "./provider/AuthProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,9 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > <div className="max-w-screen-xl mx-auto">
+        <AuthProvider>
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
+        </AuthProvider>
         </div>
       </body>
     </html>

@@ -1,8 +1,7 @@
-import Image from 'next/image';
+import Link from 'next/link';
 
 const DressCard = ({ newDress }) => {
-    const { name, size, color, price, material, inStock, imageUrl } = newDress || {};
-    console.log(newDress);
+    const { _id,name, size, color, price, material, inStock, imageUrl } = newDress || {};
     return (
         <div>
             <div className="card card-compact bg-base-100 w-96 shadow-xl">
@@ -19,7 +18,7 @@ const DressCard = ({ newDress }) => {
                     <h2>material: {material}</h2>
                     <h2>inStock: {inStock}</h2>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn bg-[#e49b8c] text-white">Buy Now</button>
                     </div>
                 </div>
             </div>

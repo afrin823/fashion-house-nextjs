@@ -3,18 +3,27 @@ import Link from "next/link";
 
 const SignUpPage = () => {
 
-  const handleSignUp = async(event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     const newUser = {
       name: event.target.name.value,
       email: event.target.email.value,
-      password: event.target.email.value
+      password: event.target.password.value,
+    };
+    const resp = await fetch("http://localhost:3000/signup/api", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (resp.status === 200) {
+      event.target.reset();
     }
-    console.log(newUser);
-  }
+  };
 
-    return (
-        <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8  py-20 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800">
+  return (
+    <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8  py-20 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800">
       <div className="flex flex-col justify-between">
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let s talk!</h2>
@@ -32,11 +41,11 @@ const SignUpPage = () => {
           </label>
           <input
             type="text"
-             name="name"
+            name="name"
             placeholder="Name"
             className="input input-bordered"
             required
-          
+
           />
         </div>
 
@@ -57,7 +66,7 @@ const SignUpPage = () => {
             <span className="font-normal text-sm">Password</span>
           </label>
           <input
-           type="password" name="password"
+            type="password" name="password"
             placeholder="password"
             className="input input-bordered"
             required
@@ -76,7 +85,7 @@ const SignUpPage = () => {
         {/* <SocialLogin></SocialLogin> */}
       </form>
     </div>
-    );
+  );
 };
 
 export default SignUpPage;

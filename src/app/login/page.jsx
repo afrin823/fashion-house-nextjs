@@ -1,76 +1,81 @@
 "use client"
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { signIn, useSession } from "next-auth/react";
+import Image from 'next/image';
 
 const LoginPage = () => {
-    const handleLogIn = async() => {
+  const router = useRouter();
+  const session = useSession();
+  const searchParams = useSearchParams();
+  const path = searchParams.get("redirect");
 
-    }
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const resp = await signIn("credentials", {
+      email,
+      password,
+      redirect: true,
+      callbackUrl: path ? path : "/",
+    });
+  };
+
     return (
-        <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-20 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800">
-        
-        <div className="flex flex-col justify-between">
-          <div className="space-y-2">
-            <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let s talk!</h2>
-            <div className="dark:text-gray-600">Vivamus in nisl metus? Phasellus.</div>
-          </div>
-          <img className="h-52 md:h-64 lg:h-full" src="https://cdni.iconscout.com/illustration/premium/thumb/login-page-illustration-download-in-svg-png-gif-file-formats--app-developing-development-secure-mobile-webapp-and-pack-design-illustrations-3783954.png" alt="" />
+      <div className="container px-24 mx-auto py-24">
+      <div className="grid grid-cols-2 gap-12 items-center">
+        <div>
+          <img
+            src="https://png.pngtree.com/png-clipart/20230825/original/pngtree-signing-up-for-a-course-isolated-cartoon-vector-illustrations-picture-image_8710389.png"
+            height="540"
+            width="540"
+            alt="login image"
+          />
         </div>
-        <form onSubmit={handleLogIn} className="card-body">
-          <h1 className="text-center text-3xl font-bold">Login!</h1>
-          <div className="form-control font-normal">
-            <label className="label">
-              <span className="text-sm">Email</span>
-            </label>
+        <div className="border-2 p-12">
+          <h6 className="text-3xl font-semibold text-primary text-center mb-12">
+            Log In
+          </h6>
+          <form onSubmit={handleLogin} action="">
+            <label htmlFor="email">Email</label> <br />
             <input
-              type="email"
+              type="text"
               name="email"
-              placeholder="email"
-              autoComplete="on"
-              required
-              className="input input-bordered text-sm"
+              placeholder="your email"
+              className="mt-3 w-full input input-bordered"
             />
-            <p className="text-red-500">emailError</p>
-          </div>
-  
-          <div className="form-control font-normal relative">
-            <label className="label">
-              <span className="text-sm">Password</span>
-            </label>
+            <br /> <br />
+            <label htmlFor="password">Password</label> <br />
             <input
-            //   type={showPassword ? "text" : "password"}
+              type="password"
               name="password"
-              placeholder="password"
-              autoComplete="on"
-              required
-              className="input input-bordered text-sm"
+              placeholder="your password"
+              className="w-full mt-3 input input-bordered"
             />
-            <p className="text-red-500">passwordError</p>
-            {/* <span
-              className="absolute top-3 right-8 mt-10 cursor-pointer"
-              onClick={() => setShowPassword(!showPassword)}
+            <br />
+            <button
+              type="submit"
+              className="w-full btn btn-primary mt-12 text-lg"
             >
-              {showPassword ? <GoEyeClosed /> : <FiEye />}
-            </span> */}
-            <label className="label font-normal">
-              <a href="#" className="text-sm link link-hover">
-                Forgot password?
-              </a>
-            </label>
-            <div className="form-control mt-6">
-              <button className="btn text-base font-semibold bg-[#3498db] text-white">
-                Login
-              </button>
-            </div>
-          </div>
-          <p className="text-center text-base">
-            Don&apos;t have an Account?
-            <Link href="/signup" className="btn text-base btn-link"> Sign Up</Link>
-            <div className="divider px-6">Continue With</div>
-          </p>
-          {/* <SocialLogin></SocialLogin> */}
-        </form>
+              Sign In
+            </button>
+          </form>
+          {/* <div>
+            <h6 className="my-12 text-center">or sign in with</h6>
+            <SocialSignin />
+            <h6 className="my-12 text-center">
+              not have account ?{" "}
+              <Link className="text-primary font-semibold" href={"/signup"}>
+                Sign Up
+              </Link>
+            </h6>
+          </div> */}
+        </div>
       </div>
+    </div>
     );
 };
 
